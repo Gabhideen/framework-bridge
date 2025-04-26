@@ -1,10 +1,11 @@
-;(function(){
--  var _a = ["exemplo.com","localhost"];
-+  var _a = ["exemplo.com","localhost","gabhideen.github.io"];
-  var _h = window.location.hostname.replace(/^www\./,"");
-  if(_a.indexOf(_h) < 0){
+(function() {
+  var dominiosPermitidos = ["gabhideen.github.io", "localhost"];
+  var dominioAtual = window.location.hostname;
+
+  if (!dominiosPermitidos.includes(dominioAtual)) {
+    // Se não for permitido, remove tudo da página
     document.documentElement.innerHTML = "";
-    document.documentElement.style.background = "#fff";
-    window.stop();
+    document.write("Acesso não autorizado");
+    document.close();
   }
 })();
