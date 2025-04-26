@@ -1,6 +1,6 @@
 (function(){
   // URL do seu domains.json no GitHub Pages
-  var u = "https://gabhideen.github.io/anti-clone/domains.json";
+  var u = "https://gabhideen.github.io/framework-bridge/domains.json";
 
   // Função principal
   function lock() {
