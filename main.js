@@ -1,11 +1,24 @@
-(function() {
-  var dominiosPermitidos = ["gabhideen.github.io", "localhost"];
-  var dominioAtual = window.location.hostname;
+(function(){
+  // URL do seu domains.json no GitHub Pages
+  var u = "https://gabhideen.github.io/anti-clone/domains.json";
 
-  if (!dominiosPermitidos.includes(dominioAtual)) {
-    // Se não for permitido, remove tudo da página
+  // Função principal
+  function lock() {
     document.documentElement.innerHTML = "";
-    document.write("Acesso não autorizado");
-    document.close();
+    window.stop();
   }
+
+  // Pega a lista e checa
+  fetch(u, {cache: "no-store"})
+    .then(function(res){ return res.json() })
+    .then(function(j){
+      var curr = window.location.hostname.replace(/^www\./,"");
+      if (j.domains.indexOf(curr) < 0) {
+        lock();
+      }
+    })
+    .catch(function(){
+      // se falhar ao buscar a lista, também trava
+      lock();
+    });
 })();
