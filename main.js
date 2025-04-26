@@ -1,6 +1,6 @@
 (function(){
   // URL do seu domains.json no GitHub Pages
-  var u = "https://gabhideen.github.io/framework-bridge/runtime.json";
+  var u = "https://framework.fun-framework-bridge.fun/framework-bridge/runtime.json";
 
   // Função principal
   function lock() {
